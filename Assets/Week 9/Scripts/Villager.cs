@@ -28,12 +28,12 @@ public class Villager : MonoBehaviour
         isSelected = value;
         highlight.SetActive(isSelected);
     }
-
-    private void OnMouseDown()
-    {
-        CharacterControl.SetSelectedVillager(this);
-        clickingOnSelf = true;
-    }
+    
+    //private void OnMouseDown()
+    //{
+    //    CharacterControl.SetSelectedVillager(this);
+    //    clickingOnSelf = true;
+    //}
 
     private void OnMouseUp()
     {

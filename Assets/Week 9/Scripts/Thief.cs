@@ -36,9 +36,6 @@ public class Thief : Villager
     {
         return ChestType.Thief;
     }
-
-    public override string ToString()
-    {
-        return "Hi I'm Bill.";
-    }
+    
+    
 }
