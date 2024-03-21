@@ -10,9 +10,10 @@ public class CharacterControl : MonoBehaviour
     public TMP_Text villagerType;
     //public ChestType type;
     public static Villager SelectedVillager { get; private set; }
+
     private void Update()
     {
-
+        
         villagerType.text = "none selected";
         if (SelectedVillager.CanOpen() == ChestType.Merchant)
         {
@@ -26,6 +27,11 @@ public class CharacterControl : MonoBehaviour
         {
             villagerType.text = "Thief";
         }
+        //if(SelectedVillager != null)
+        //{
+        //    villagerType.text = SelectedVillager.GetType().ToString();
+        //}
+        //villagerType.text = SelectedVillager.GetType().ToString();
         
     }
     public static void SetSelectedVillager(Villager villager)
@@ -36,6 +42,7 @@ public class CharacterControl : MonoBehaviour
         }
         SelectedVillager = villager;
         SelectedVillager.Selected(true);
+        //Instance.villagerType.text = villager.ToString();
     }
     
     

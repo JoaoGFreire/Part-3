@@ -7,23 +7,38 @@ public class Thief : Villager
     public GameObject daggerPrefab;
     public Transform sp;
     public Transform sp2;
+    Coroutine dashing;
 
     protected override void Attack()
     {
-        speed = 30;
-        destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if(movement.magnitude <0.1)
+        if (dashing != null)
         {
-            speed = 3;
+            StopCoroutine(dashing);
         }
-        base.Attack();
-        Instantiate(daggerPrefab, sp.position, sp.rotation);
-        Instantiate(daggerPrefab, sp2.position, sp2.rotation);
-        //speed = 3;
+        dashing = StartCoroutine(Dash());
     }
-
+    IEnumerator Dash()
+    {
+        destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        speed = 10;
+        while (speed > 3)
+        {
+            yield return null; //come back next frame
+        }
+        
+        base.Attack();
+        yield return new WaitForSeconds(0.1f);
+        Instantiate(daggerPrefab, sp.position, sp.rotation);
+        yield return new WaitForSeconds(0.1f);
+        Instantiate(daggerPrefab, sp2.position, sp2.rotation);
+    }
     public override ChestType CanOpen()
     {
         return ChestType.Thief;
+    }
+
+    public override string ToString()
+    {
+        return "Hi I'm Bill.";
     }
 }
