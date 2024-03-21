@@ -14,6 +14,8 @@ public class CharacterControl : MonoBehaviour
     public Merchant merc;
     public Archer arch;
     public Thief thie;
+
+    float interpolation;
     //public ChestType type;
     public static Villager SelectedVillager { get; private set; }
 
@@ -33,6 +35,7 @@ public class CharacterControl : MonoBehaviour
         {
             villagerType.text = "Thief";
         }
+        SelectedVillager.transform.localScale = Vector3.Lerp(new Vector3(0.5f,0.5f,0.5f), new Vector3(2,2,2), interpolation);
         //if(SelectedVillager != null)
         //{
         //    villagerType.text = SelectedVillager.GetType().ToString();
@@ -69,6 +72,11 @@ public class CharacterControl : MonoBehaviour
             Debug.Log("Thief Selected");
             SetSelectedVillager(thie);
         }
+    }
+
+    public void SliderScale(Single value)
+    {
+        interpolation = value;
     }
 
 
