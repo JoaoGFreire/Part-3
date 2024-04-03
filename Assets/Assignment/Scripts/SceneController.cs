@@ -4,12 +4,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class SceneController : MonoBehaviour
 {
     // Start is called before the first frame update
     public Slider HealthBarTemp;
+    public TMP_Text HpValue;
+    float currentHP;
 
+    private void Start()
+    {
+        currentHP = 100 - HealthBarTemp.value;
+        HpValue.text = "HP: "  + currentHP.ToString();
+    }
     public void LoadNextScene()
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
@@ -20,5 +28,7 @@ public class SceneController : MonoBehaviour
     public void TempTakeDamage()
     {
         HealthBarTemp.value += 10;
+        currentHP = 100 - HealthBarTemp.value;
+        HpValue.text = "HP: " + currentHP.ToString();
     }
 }
