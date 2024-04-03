@@ -8,11 +8,17 @@ using UnityEngine.EventSystems;
 public class SceneController : MonoBehaviour
 {
     // Start is called before the first frame update
+    public Slider HealthBarTemp;
 
     public void LoadNextScene()
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         int nextScene = (currentScene + 1) % SceneManager.sceneCountInBuildSettings;
         SceneManager.LoadScene(nextScene);
+    }
+
+    public void TempTakeDamage()
+    {
+        HealthBarTemp.value += 10;
     }
 }
