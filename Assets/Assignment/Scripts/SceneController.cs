@@ -15,8 +15,7 @@ public class SceneController : MonoBehaviour
 
     private void Start()
     {
-        currentHP = 100 - HealthBarTemp.value;
-        HpValue.text = "HP: "  + currentHP.ToString();
+
     }
     public void LoadNextScene()
     {
@@ -27,7 +26,7 @@ public class SceneController : MonoBehaviour
 
     public void TempTakeDamage()
     {
-        HealthBarTemp.value += 10;
+        HealthBarTemp.value += Pokemon.getStrength();
         currentHP = 100 - HealthBarTemp.value;
         HpValue.text = "HP: " + currentHP.ToString();
     }
