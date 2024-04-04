@@ -24,7 +24,10 @@ public class Garchomp : Pokemon
     // Update is called once per frame
     void Update()
     {
-        
+        if (Health == 0) 
+        {
+            SceneController.DeathScene();
+        }
     }
 
    public void Heal()

@@ -9,8 +9,8 @@ using TMPro;
 public class SceneController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Slider HealthBarTemp;
-    public TMP_Text HpValue;
+    //public Slider HealthBarTemp;
+    //public TMP_Text HpValue;
     float currentHP;
 
     private void Start()
@@ -23,6 +23,17 @@ public class SceneController : MonoBehaviour
         int nextScene = (currentScene + 1) % SceneManager.sceneCountInBuildSettings;
         SceneManager.LoadScene(nextScene);
     }
-     
+    public static void DeathScene()
+    {
+        SceneManager.LoadScene(2);
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public static void WinScene()
+    {
+        SceneManager.LoadScene(3);
+    }
 
 }
