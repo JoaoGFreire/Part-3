@@ -26,6 +26,14 @@ public class Sceptile : Pokemon
         HealthBarTextS.text = "Sceptile HP: " + Health.ToString();
     }
 
+    public void takeDamage()
+    {
+        Health -= getStrength();
+        HealthBarS.value += getStrength();
+        HealthBarTextS.text = "Sceptile HP: " + Health.ToString();
+        Debug.Log(getStrength().ToString());
+    }
+
     public IEnumerator LeafStorm()
     {
         while (Health > 0)

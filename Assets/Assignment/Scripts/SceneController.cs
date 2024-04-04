@@ -23,11 +23,6 @@ public class SceneController : MonoBehaviour
         int nextScene = (currentScene + 1) % SceneManager.sceneCountInBuildSettings;
         SceneManager.LoadScene(nextScene);
     }
+     
 
-    public void TempTakeDamage()
-    {
-        HealthBarTemp.value += Pokemon.getStrength();
-        currentHP = 100 - HealthBarTemp.value;
-        HpValue.text = "HP: " + currentHP.ToString();
-    }
 }

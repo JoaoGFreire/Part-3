@@ -18,7 +18,7 @@ public class Garchomp : Pokemon
     protected override void HealthBarSetup()
     {
         HealthBarG.maxValue = 150;
-        HealthTextG.text = " Garchomp HP: " + Health.ToString();
+        HealthTextG.text = "Garchomp HP: " + Health.ToString();
     }
 
     // Update is called once per frame
@@ -29,8 +29,23 @@ public class Garchomp : Pokemon
 
    public void Heal()
     {
-        Health += 10;
-        HealthBarG.value -= 10;
-        HealthTextG.text = "HP: " + Health.ToString();
+        if(Health == 100)
+        {
+            Health = Health;
+        }
+        else
+        {
+            Health += 10;
+            HealthBarG.value -= 10;
+            HealthTextG.text = "Garchomp HP: " + Health.ToString();
+        }
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Health -= 10;
+        HealthBarG.value += 10;
+        HealthTextG.text = "Garchomp HP: " + Health.ToString();
     }
 }

@@ -9,7 +9,7 @@ public class Pokemon : MonoBehaviour
 {
     // Start is called before the first frame update
     protected float Health;
-    public static float Strength;
+    public static float Strength = 10;
 
     public Slider HealthBar;
     public TMP_Text HealthText;
