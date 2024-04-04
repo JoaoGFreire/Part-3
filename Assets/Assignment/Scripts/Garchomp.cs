@@ -32,9 +32,9 @@ public class Garchomp : Pokemon
 
    public void Heal()
     {
-        if(Health == 100)
+        if(Health >= 150)
         {
-            Health = Health;
+            Health = 150;
         }
         else
         {
